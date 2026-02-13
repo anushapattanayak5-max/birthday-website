@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Babai ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
+}
+
+h1 {
+    color: white;
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+.slideshow {
+    margin-top: 30px;
+    position: relative;
+}
+
+.slideshow img {
+    width: 320px;
+    height: 380px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+}
+
+.message {
+    font-size: 20px;
+    color: white;
+    margin-top: 15px;
+    padding: 0 20px;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 22px;
+    color: white;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-900px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday Babai 🎉</h1>
+
+<div class="slideshow">
+    <img id="photo" src="photo1.jpeg">
+    <div class="message" id="text">You are my hero ❤️</div>
+</div>
+
+<footer>
+    Thank you for everything Babai 💖 <br>
+    We love you so much!
+</footer>
+
+<!-- Optional Background Music -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// 🔹 Add ALL your images here
+var images = [
+    "photo1.jpeg",
+    "photo2.jpeg",
+    "photo3.jpeg",
+    "photo4.jpeg",
+    "photo5.jpeg",
+    "photo6.jpeg"
+];
+
+// 🔹 Add matching messages (same number as images)
+var messages = [
+    "You are our hero ❤️",
+    "Thank you for always supporting us 💪",
+    "Life is beautiful because of you ✨",
+    "Every memory with you is special 💖",
+    "Your smile makes everything brighter 😊",
+    "Happy Birthday Babai 🎂"
+];
+
+var i = 0;
+
+function changeSlide() {
+    var photo = document.getElementById("photo");
+    var text = document.getElementById("text");
+
+    photo.style.opacity = 0;
+
+    setTimeout(function(){
+        photo.src = images[i];
+        text.innerHTML = messages[i];
+        photo.style.opacity = 1;
+        i++;
+        if (i >= images.length) {
+            i = 0;
+        }
+    }, 500);
+}
+
+// Change image every 5 seconds
+setInterval(changeSlide, 4000);
+
+
+// ❤️ Floating Hearts Animation
+setInterval(function(){
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    document.body.appendChild(heart);
+    
+    setTimeout(function(){
+        heart.remove();
+    }, 6000);
+}, 400);
+
+</script>
+
+</body>
+</html>
